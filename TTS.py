@@ -41,9 +41,9 @@ def text_to_speech(title_output, text_input, gender_code):
         else:
             break
 
-    with open(f"{title_output}_{count_output}.mp3", "wb") as out:
+    with open(f"{title_output}_{count_output}_py.mp3", "wb") as out:
         out.write(response.audio_content)
-        print(f'Audio content written to file "{title_output}_{count_output}.mp3"')
+        print(f'Audio content written to file "{title_output}_{count_output}_py.mp3"')
 
 # 탐색을 위한 로컬파일 경로 지정
 target_dir = 'C:/Users/SSAFY/Desktop/TTS_test'
