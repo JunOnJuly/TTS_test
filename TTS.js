@@ -4,9 +4,9 @@ const util = require('util');
 const service_js = require('./key/service_js.js');
 
 // 임시 변수 설정
-title = 'test'
-text_input = 'test text'
-gender_input = 0
+const title = 'test'
+const text_input = 'test text'
+const gender_input = 0
 
 // TTS 함수
 const TTS = (title, text_input, gender_input) => {
@@ -63,5 +63,5 @@ const TTS = (title, text_input, gender_input) => {
   quickStart();
 }
 
-// 함수 설정
+// 함수 실행
 TTS('test', 'test text', gender_input)

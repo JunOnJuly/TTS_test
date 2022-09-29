@@ -3,7 +3,15 @@ from google.cloud import texttospeech
 import os
 
 
-def text_to_speech(title_output, text_input, gender_code):
+def text_to_speech(title_output='test', text_input='test', gender_code=0):
+    if title_output == '':
+        title_output = 'test'
+    if text_input == '':
+        text_input = 'test'
+    if gender_code == '':
+        gender_code = '0'
+    else:
+        gender_code = int(gender_code)
     # 성별 지정
     if gender_code == 0:
         ssml_gender = texttospeech.SsmlVoiceGender.MALE
@@ -46,7 +54,7 @@ def text_to_speech(title_output, text_input, gender_code):
         print(f'Audio content written to file "{title_output}_{count_output}_py.mp3"')
 
 # 탐색을 위한 로컬파일 경로 지정
-target_dir = 'C:/Users/SSAFY/Desktop/TTS_test'
+target_dir = './'
 files = os.listdir(target_dir)
 
 # 구글 인증 및 클라이언트 등록
@@ -56,6 +64,6 @@ client = texttospeech.TextToSpeechClient()
 # 프로세스 실행
 title_output = input('파일의 이름을 입력해주세요 : ')
 text_input = input('텍스트를 입력해주세요 : ')
-gender_code = int(input('성별을 입력해주세요 (남성:0, 여성:1) : '))
+gender_code = input('성별을 입력해주세요 (남성:0, 여성:1) : ')
 
 text_to_speech(title_output, text_input, gender_code)
